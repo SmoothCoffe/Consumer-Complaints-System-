@@ -1,0 +1,11 @@
+* text=auto
+
+*.sln text eol=crlf
+*.csproj text eol=crlf
+*.cshtml text eol=crlf
+*.cs text eol=crlf
+*.json text eol=crlf
+
+*.png binary
+*.jpg binary
+*.ico binary
