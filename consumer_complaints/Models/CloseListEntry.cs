@@ -1,7 +1,28 @@
-using System.Runtime.InteropServices;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+namespace consumer_complaints.Models;
 
-[assembly: ComVisible(false)]
+[Table("complaints_close_list_tb")]
+public class CloseListEntry
+{
+    [Key]
+    [StringLength(6)]
+    [Column("ref_num")]
+    public string ReferenceNumber { get; set; } = string.Empty;
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM.
+    [StringLength(10)]
+    [Column("close_date")]
+    public string? CloseDate { get; set; }
 
-[assembly: Guid("6f7d8e5d-7adb-4372-bcaa-4a6f8111fa4d")]
+    [StringLength(8)]
+    [Column("close_time")]
+    public string? CloseTime { get; set; }
+
+    [StringLength(3)]
+    [Column("time_taken_in_hrs")]
+    public string TimeTakenInMinutes { get; set; } = string.Empty;
+
+    [ForeignKey(nameof(ReferenceNumber))]
+    public NewComplaint Complaint { get; set; }= null!;
+
+}

@@ -1,8 +1,35 @@
-using System.Runtime.InteropServices;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace consumer_complaints.Models;
 
-[assembly: ComVisible(false)]
+[Table("complaints_assignment_tb")]
+public class Assignment
+{
+    [Key]
+    [StringLength(6)]
+    [Column("ref_num")]
+    public string ReferenceNumber { get; set; } = string.Empty;
 
-// The following GUID is for the ID of the typelib if this project is exposed to COM.
+    [StringLength(10)]
+    [Column("assign_date")]
+    public string? AssignDate { get; set; }
 
-[assembly: Guid("4fc6c49b-38e5-43b4-901d-28b695588e0a")]
+    [StringLength(50)]
+    [Column("assigned_to_user_id")]
+    public string? AssignedToUserId { get; set; }
+
+    [ForeignKey(nameof(AssignedToUserId))]
+    public AppUser? AssignedToUser { get; set; }
+
+    [StringLength(35)]
+    [Column("delay_reason")]
+    public string? DelayReason { get; set; }
+
+    [StringLength(8)]
+    [Column("status")]
+    public string? Status { get; set; } = "PENDING";
+
+    [ForeignKey(nameof(ReferenceNumber))]
+    public NewComplaint Complaint { get; set; } = null!;
+}
