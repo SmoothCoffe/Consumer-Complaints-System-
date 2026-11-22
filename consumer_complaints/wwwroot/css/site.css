@@ -1,0 +1,41 @@
+/* ===============================================================================
+   site.css - تخصيص ألوان العلامة فوق Bootstrap
+   =============================================================================== */
+
+:root {
+    --brand-blue: #3b82f6;
+    --brand-navy: #0f172a;
+    --brand-slate-light: #cbd5e1;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin-bottom: 0;
+}
+
+.bg-navy {
+    background-color: var(--brand-navy) !important;
+}
+
+.text-slate-light {
+    color: var(--brand-slate-light) !important;
+}
+
+.card-shadow {
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    border: 0;
+}
+
+.navbar-brand-app {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navbar-brand-app:hover {
+    color: var(--brand-slate-light);
+}
