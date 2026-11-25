@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.SignalR.Protocol;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace consumer_complaints.Models;
@@ -51,7 +50,7 @@ public class AppUser
     public bool IsActive { get; set; } = true;
 
     [Column("created_at")]
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     [Column("updated_at")]
     public DateTime? UpdatedAt { get; set; }
@@ -67,7 +66,7 @@ public class AppUser
 
     public ICollection<ComplaintAssignment> AssignmentsReceived { get; set; }= new List<ComplaintAssignment>();
     public ICollection<ComplaintAssignment> AssignmentsMade { get; set; }= new List<ComplaintAssignment>();
-    public ICollection<CompletionMessage> Messages { get; set; } = new List<CompletionMessage>();
+    public ICollection<ComplaintMessage> Messages { get; set; } = new List<ComplaintMessage>();
     public ICollection<EscalationLog> EscalationsReceived { get; set; }= new List<EscalationLog>();
     public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
 }

@@ -29,7 +29,7 @@ public class ComplaintMessage
     [Column("is_internal")]
     public bool IsInternal { get; set; }
     [Column("created_at")]
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     [Column("read_by_customer_at")]
     public DateTime? ReadByCustomerAt { get; set; }
 
