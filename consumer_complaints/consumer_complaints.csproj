@@ -22,7 +22,6 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
   </ItemGroup>
 
-  <!-- تُظهر المجلدات الفارغة داخل Solution Explorer في Visual Studio -->
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\" />

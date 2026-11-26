@@ -19,8 +19,8 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
 });
-//builder.services.configure<emailsettings>(builder.configuration.getsection("emailsettings"));
-//builder.services.configure<appsettings>(builder.configuration.getsection("appsettings"));
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 //builder.services.addscoped<autoassignmentservice>();
 //builder.services.addscoped<complaintintakeservice>();
@@ -28,7 +28,7 @@ builder.Services.AddSession(options =>
 //builder.services.addscoped<escalationservice>();
 //builder.services.addscoped<trackingverificationservice>();
 
-//builder.services.addscoped<iemailsender>(sp =>
+builder.Services.AddScoped<IEmailSender, LoggingEmailSender>();
 //{
 //    var settings = sp.getrequiredservice<microsoft.extensions.options.ioptions<emailsettings>>().value;
 
